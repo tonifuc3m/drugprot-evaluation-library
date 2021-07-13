@@ -10,13 +10,14 @@ Output is printed in terminal.
 
 + Python3
 + pandas
++ sklearn
 
-You will need python3 (together with its base libraries) and the pandas package version.
+You will need python3 (together with its base libraries) and the pandas and sklearn packages.
 
-To install them: 
+To install all dependencies: 
 
 ```
-git clone URL
+git clone https://github.com/tonifuc3m/drugprot-evaluation-library.git
 cd drugprot-evaluation-library
 pip install -r requirements.txt
 ```
