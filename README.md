@@ -113,6 +113,11 @@ f1_micro=0.766
 
 ```
 
+
+If you find any bugs in the evaluation library, please, contact me at antoniomiresc@gmail.com
+
+
 ### Relevant links:
 + [DrugProt Web](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vii/track-1/)
 + [DrugProt corpus](https://doi.org/10.5281/zenodo.4955410)
++ [DrugProt Large Scale](https://doi.org/10.5281/zenodo.5119878)
