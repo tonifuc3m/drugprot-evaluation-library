@@ -10,13 +10,14 @@ Output is printed in terminal.
 
 + Python3
 + pandas
++ sklearn
 
-You will need python3 (together with its base libraries) and the pandas package version.
+You will need python3 (together with its base libraries) and the pandas and sklearn packages.
 
-To install them: 
+To install all dependencies: 
 
 ```
-git clone URL
+git clone https://github.com/tonifuc3m/drugprot-evaluation-library.git
 cd drugprot-evaluation-library
 pip install -r requirements.txt
 ```
@@ -112,6 +113,11 @@ f1_micro=0.766
 
 ```
 
+
+If you find any bugs in the evaluation library, please, contact me at antoniomiresc@gmail.com
+
+
 ### Relevant links:
 + [DrugProt Web](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vii/track-1/)
 + [DrugProt corpus](https://doi.org/10.5281/zenodo.4955410)
++ [DrugProt Large Scale](https://doi.org/10.5281/zenodo.5119878)
