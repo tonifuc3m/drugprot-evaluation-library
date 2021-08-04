@@ -145,17 +145,18 @@ def prepro_relations(df, chemicals, rel_types, is_gs=False, gs_files=set()):
     if df.shape[1] != 4:
         raise Exception('Wrong column number in the annotations file')
             
-    # Drop duplicates
-    df = df.drop_duplicates(subset=df.columns).copy()
-    
+
+    # Remove predictions for PMIDs not valid
+    if is_gs==False:
+        df = df.loc[df['pmid'].isin(gs_files),:].copy()
+        
     # Remove predictions for RELATION FILES not valid
     if len(set(df.rel_type.tolist()).intersection(set(rel_types))) > len(set(rel_types)):
         warnings.warn("Non-valid relation types. Skipping them")
     df = df.loc[df['rel_type'].isin(rel_types),:].copy()
     
-    # Remove predictions for PMIDs not valid
-    if is_gs==False:
-        df = df.loc[df['pmid'].isin(gs_files),:].copy()
+    # Drop duplicates
+    df = df.drop_duplicates(subset=df.columns).copy()
     
     # Check every relation has one CHEMICAL and one GENE
     df['pmid-arg1'] = df['pmid'] + '-' + df['arg1'].apply(lambda x: x.split(':')[-1])
@@ -197,11 +198,11 @@ def format_relations(gs_valid, pred_valid, combinations, NCOMB, NREL, reltype2ta
     Parameters
     ----------
     gs_valid : pandas DataFrame
-        DESCRIPTION.
+        GS relations. Columns: ['pmid', 'rel_type', 'chemical', 'gene']
     pred_valid : pandas DataFrame
-        DESCRIPTION.
-    combinations : TYPE
-        Possible entity combinations (CHEMICAL-GENE).
+        Predicted relations. ['pmid', 'rel_type', 'chemical', 'gene']
+    combinations : dictionary
+        PMIDs as keys, all possible CHEMICAL-GENE combinations are values.
     NCOMB : int
         Number of entity combinations (CHEMICAL-GENE).
     NREL : int
