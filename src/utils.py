@@ -249,3 +249,32 @@ def format_relations(gs_valid, pred_valid, combinations, NCOMB, NREL, reltype2ta
             
         pos0 = pos0+idx
     return y_true, y_pred
+
+
+def filter_pred(pred_path, pmids):
+    '''
+    Create temporary predictions file with only the PMIDs that are relevant
+    for evaluation
+
+    Parameters
+    ----------
+    pred_path : str
+        Predictions file.
+    pmids : set
+        Set of PMIDs relevant for evaluation.
+
+    Returns
+    -------
+    outpath : str
+        Temporary predictions file.
+
+    '''
+    outpath = pred_path + '.tmp.tsv'
+    fout = open(outpath, 'w', encoding='utf-8')
+    with open(pred_path) as fin:
+        for line in fin:
+            if line.split('\t')[0] in pmids:
+                fout.write(line)
+                
+        
+    return outpath

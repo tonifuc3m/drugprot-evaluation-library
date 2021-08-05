@@ -13,7 +13,7 @@ import os
 
 import compute_metrics
 from utils import load_entities_dict, prepro_relations, \
-    format_relations, get_chemical_gene_combinations
+    format_relations, get_chemical_gene_combinations, filter_pred
 
 def warning_on_one_line(message, category, filename, lineno, file=None, line=None):
     return '%s:%s: %s: %s\n' % (filename, lineno, category.__name__, message)
@@ -79,7 +79,8 @@ def main(args):
     
     # Load predictions
     print("Loading prediction files...")
-    pred = pd.read_csv(args.pred_path, sep='\t', header=None, dtype=str, skip_blank_lines=True,
+    tmp_pred_path = filter_pred(args.pred_path, pmids)  # Create tmp predictions with only GS files
+    pred = pd.read_csv(tmp_pred_path, sep='\t', header=None, dtype=str, skip_blank_lines=True,
                        names = ['pmid', 'rel_type', 'arg1', 'arg2'], encoding = 'utf-8')
     
     # Format data
