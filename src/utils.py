@@ -238,14 +238,16 @@ def format_relations(gs_valid, pred_valid, combinations, NCOMB, NREL, reltype2ta
             gs_rel = gs_this.loc[(gs_this['chemical']==chem)&(gs_this['gene']==gene),
                                    'rel_type'].values
             if len(gs_rel)>0:
-                tag = reltype2tag[gs_rel[0]]
-                y_true[tag-1][pos0+idx]=1
+                for item in gs_rel:
+                    tag = reltype2tag[item]
+                    y_true[tag-1][pos0+idx]=1
                 
             pred_rel = pred_this.loc[(pred_this['chemical']==chem)&(pred_this['gene']==gene),
                                    'rel_type'].values
             if len(pred_rel)>0:
-                tag = reltype2tag[pred_rel[0]]
-                y_pred[tag-1][pos0+idx]=1
+                for item in pred_rel:
+                    tag = reltype2tag[item]
+                    y_pred[tag-1][pos0+idx]=1
             
         pos0 = pos0+idx
     return y_true, y_pred

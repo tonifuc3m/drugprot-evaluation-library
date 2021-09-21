@@ -92,8 +92,8 @@ p_ACTIVATOR=1.0
 r_ACTIVATOR=1.0
 f1_ACTIVATOR=1.0
 p_INHIBITOR=1.0
-r_INHIBITOR=1.0
-f1_INHIBITOR=1.0
+r_INHIBITOR=0.8
+f1_INHIBITOR=0.889
 p_AGONIST=0.8
 r_AGONIST=0.667
 f1_AGONIST=0.727
@@ -103,13 +103,14 @@ f1_ANTAGONIST=1.0
 p_PART-OF=1.0
 r_PART-OF=0.5
 f1_PART-OF=0.667
-The following relations are not present in the Gold Standard: INDIRECT-UPREGULATOR,PRODUCT-OF,AGONIST-INHIBITOR,SUBSTRATE_PRODUCT-OF,AGONIST-ACTIVATOR,SUBSTRATE
+The following relations are not present in the Gold Standard: AGONIST-INHIBITOR,SUBSTRATE_PRODUCT-OF,AGONIST-ACTIVATOR,INDIRECT-UPREGULATOR,SUBSTRATE,PRODUCT-OF
+The following relations are not present in the Predictions: SUBSTRATE,PRODUCT-OF,SUBSTRATE_PRODUCT-OF,AGONIST-ACTIVATOR
 The following relations are not present in the Predictions: SUBSTRATE_PRODUCT-OF,PRODUCT-OF,AGONIST-ACTIVATOR,SUBSTRATE
 
 Gobal results across all DrugProt relations (micro-average)
 p_micro=0.783
-r_micro=0.75
-f1_micro=0.766
+r_micro=0.72
+f1_micro=0.75
 
 ```
 
