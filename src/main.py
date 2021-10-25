@@ -91,14 +91,8 @@ def main(args):
     pred_valid,pred_rel_list = prepro_relations(pred, chemicals, rel_types, is_gs=False, gs_files=pmids)
     
     print("Formatting data...")
-    print(gs_valid)
-    # print(pred_valid)
     y_true, y_pred = format_relations(gs_valid, pred_valid, combinations, 
                                       NCOMB, NREL, reltype2tag)
-    for k,v in reltype2tag.items():
-        print(k)
-        print(sum(y_pred[v-1]))
-        print('-----------------------------------')
     
     # Compute metrics
     print("Computing DrugProt (BioCreative VII) metrics ...\n(p = Precision, r=Recall, f1 = F1 score)")
