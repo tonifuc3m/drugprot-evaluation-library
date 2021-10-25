@@ -103,13 +103,18 @@ def get_chemical_gene_combinations(_dict_):
     """
 
     combinations = {}
+    pmid2pos = {}
     NCOMB = 0
+    pos1 = 0
     for pmid, entities in _dict_.items():
         chem = entities['chemicals']
         genes = entities['genes']
         combinations[pmid] = list(itertools.product(chem, genes))
         NCOMB = NCOMB + len(combinations[pmid] )
-    return combinations, NCOMB
+        pos0 = pos1
+        pos1 = pos1 + len(combinations[pmid])
+        pmid2pos[pmid] = (pos0, pos1)
+    return combinations, NCOMB, pmid2pos
 
 def prepro_relations(df, chemicals, rel_types, is_gs=False, gs_files=set()):
     """
@@ -248,8 +253,7 @@ def format_relations(gs_valid, pred_valid, combinations, NCOMB, NREL, reltype2ta
                 for item in pred_rel:
                     tag = reltype2tag[item]
                     y_pred[tag-1][pos0+idx]=1
-            
-        pos0 = pos0+idx
+        pos0 = pos0+idx+1
     return y_true, y_pred
 
 
