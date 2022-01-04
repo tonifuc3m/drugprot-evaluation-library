@@ -123,3 +123,10 @@ If you find any bugs in the evaluation library, please, contact me at antoniomir
 + [DrugProt Web](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vii/track-1/)
 + [DrugProt corpus](https://doi.org/10.5281/zenodo.4955410)
 + [DrugProt Large Scale](https://doi.org/10.5281/zenodo.5119878)
+
+
+<p align="center">
+    <a href="https://github.com/tonifuc3m/drugprot-evaluation-library/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/tonifuc3m/drugprot-evaluation-library/issues">Request Feature</a>
+</p>
