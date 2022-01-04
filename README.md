@@ -1,6 +1,6 @@
-# 1. Introduction
+# 1. Introduction <img src="biocreative-logo.jpeg" align="right"  height = 150/>
 
-This library is used to produce results for the official BioCreative evaluation metrics.
+Official library to compute results for the BioCreative Task 1 competition. It is intended to be used by BioCreative participants to test their systems before submitting them. It will be used as well by the competition organizers to compute the official metrics.
 
 Written in Python 3.8
 
@@ -12,7 +12,7 @@ Output is printed in terminal.
 + pandas
 + sklearn
 
-You will need python3 (together with its base libraries) and the pandas and sklearn packages.
+You will need python3 (together with its base libraries) as well as the pandas and sklearn packages.
 
 To install all dependencies: 
 
@@ -25,12 +25,12 @@ pip install -r requirements.txt
 
 # 3. Execution
 
+To run the evaluation library, move to the src/ directory and execute the main.py script.
+
 ```
 cd src
 python main.py -g ../gs-data/gs_relations.tsv -p ../toy-data/pred_relations.tsv -e ../gs-data/gs_entities.tsv --pmids ../gs-data/pmids.txt
 ```
-
-To run the evaluation library, move to the src/ directory and execute the main.py script.
 
 
 # 4. Other interesting stuff:
@@ -58,7 +58,7 @@ Example:
 23220562	  &nbsp;&nbsp; INDIRECT-DOWNREGULATOR	  &nbsp;&nbsp; Arg1:T1	  &nbsp;&nbsp; Arg2:T14
 
 
-For more in-depth information about the Data Format (Gold Standard and Predictions), have a look at the [toy-data](toy-data) directory or at the [Zenodo page](https://doi.org/10.5281/zenodo.4955410) .
+For more in-depth information about the Data Format (Gold Standard and Predictions), have a look at the [toy-data](toy-data) directory or at the [Zenodo page](https://doi.org/10.5281/zenodo.4955410).
 
 ### Script Arguments
 + ```-g/--gs_path```: path to Gold Standard relations TSV file
@@ -119,6 +119,7 @@ If you find any bugs in the evaluation library, please, contact me at antoniomir
 
 
 ### Relevant links:
++ [BioCreative Proceedings](https://biocreative.bioinformatics.udel.edu/resources/publications/bc-vii-workshop-proceedings/)
 + [DrugProt Web](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vii/track-1/)
 + [DrugProt corpus](https://doi.org/10.5281/zenodo.4955410)
 + [DrugProt Large Scale](https://doi.org/10.5281/zenodo.5119878)
